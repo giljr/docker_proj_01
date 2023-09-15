@@ -1,0 +1,22 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Docker App 1",
+  "main": "index.js",
+  "scripts": {
+    "test": "test", 
+    "start": "nodemon ./src/index"
+  },
+  "keywords": [
+    "Docker"
+  ],
+  "author": "j3",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
