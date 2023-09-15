@@ -1,0 +1,32 @@
+ mkdir docker
+ cd docker
+ mkdir proj_01
+ cd proj_01
+ mkdir api
+ cd api
+ mkdir db
+ mkdir src
+ cd ..
+ mkdir website
+ cd website
+ mkdir vendor
+ cd ..
+ code .
+ docker build -t mysql-image -f api/db/Dockerfile .
+ clear
+ docker build -t mysql-image -f api/db/Dockerfile .
+ docker run -d -v $(pwd)/api/db/data:/var/lib/mysql --rm --name mysql-container mysql-image
+ docker exec -i mysql-container mysql -uroot -pjaythree < api/db/script.sql
+ docker exec -it mysql-container /bin/bash
+ cd api
+ clear
+ npm init
+ npm install -D nodemon
+ npm install --save express mysql
+ cd ..
+ clear
+ docker build -t node-image -f api/Dockerfile .
+ docker run -d -v $(pwd)/api:/home/node/app -p 9001:9001 --link mysql-container --rm --name node-container node-image
+ docker exec -it mysql-container /bin/bash
+ docker build -t php-image -f website/Dockerfile .
+ docker run -d -v $(pwd)/website:/var/www/html -p 8888:80 --link node-container --rm --name php-container php-image
