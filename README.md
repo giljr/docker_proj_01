@@ -19,7 +19,11 @@ Welcome!
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+We are planning to develop a JavaScript API, establish a MySQL database, and create a PHP website to consume the API services.
+
+![Proj_01](https://miro.medium.com/v2/resize:fit:750/format:webp/1*j3H0e5mQq3duH6Pzrit3hg.png)
+
+
 
 
 ## Run Locally
